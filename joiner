@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Roblox Join Link</title>
+</head>
+<body>
+  <h2>🌐 Join Link</h2>
+  <p><a id="joinLink" href="#" target="_blank">Click to Join</a></p>
+
+  <script>
+    // Leer parámetros de la URL
+    const q = new URLSearchParams(location.search);
+    const placeId = q.get('placeId');
+    const jobId = q.get('gameInstanceId');
+
+    if (placeId && jobId) {
+      // Link oficial de Roblox
+      const webUrl = `https://www.roblox.com/games/start?placeId=${placeId}&gameInstanceId=${encodeURIComponent(jobId)}`;
+      
+      // Ponerlo en el link
+      const a = document.getElementById("joinLink");
+      a.href = webUrl;
+    } else {
+      document.body.innerHTML = "<h3>Error: Falta placeId o gameInstanceId en la URL</h3>";
+    }
+  </script>
+</body>
+</html>
